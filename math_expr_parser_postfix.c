@@ -1,42 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-char *get_str_wo_spaces(char *str);
-int is_operator(const char c);
-int is_digit(const char c);
-int precedence(char op);
-double apply_op(double a, double b, char op);
-double calc(char *str);
-
-
-int main(int argc, char *argv[])
-{
-    (void)argv;
-	if(argc == 1)
-	{
-        while (1)
-        {
-            char *str = 0;
-            long unsigned int sz = 0;
-
-            printf("Enter the math expression or q to exit: ");
-            if (-1 != getline(&str, &sz, stdin))
-            {
-                if (*str == 'q')
-                {
-                    free(str);
-                    str = 0;
-                    return 0;
-                }
-                printf ("Result: %.2f\n",calc(str));
-                free(str);
-                str = 0;
-            }
-        }
-	}
-    return 0;
-}
+#include "math_expr_parser_postfix.h"
 
 double calc(char *str_original)
 {
