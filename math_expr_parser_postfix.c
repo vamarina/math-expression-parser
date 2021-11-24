@@ -2,16 +2,8 @@
 
 // Function to calculate the result of
 // the correct expression
-double calc(char *str_original)
+double calc(char *str)
 {
-
-    char *str = 0;
-
-    // check whether string is correct or not, add 0-
-    // for unary -, remove spaces and get the string
-    str = get_str_wo_spaces(str_original);
-
-
     int len = strlen(str);
     int is_number = 0;
     int num_count = 0;
@@ -128,11 +120,6 @@ double calc(char *str_original)
 
         double val1 = values[vals_len - 1];
         values[vals_len - 1] = apply_op(val1, val2, op);
-    }
-    if (str)
-    {
-        free(str);
-        str = 0;
     }
 
     // The last value is the result
