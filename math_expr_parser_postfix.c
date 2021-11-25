@@ -138,7 +138,7 @@ char *get_str_wo_spaces(char *str)
     int brackets_count = 0;
     int st_ind = -1;
 
-    if (str == 0 || *str == '\0')
+    if (str == 0 || *str == '\n')
     {
         printf("Error: empty string or there is no string\n");
         return str_wo_spaces;
