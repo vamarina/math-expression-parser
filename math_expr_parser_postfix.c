@@ -264,12 +264,14 @@ char *get_str_wo_spaces(char *str)
         while (str[i] == ' ')
         {
             i++;
+            is_curr_digit = (str[i] >= '0' && str[i] <= '9');
+            is_curr_op = is_operator(str[i]);
         }
 
         // current character is operator
         if (is_curr_op)
         {
-            if (!is_digit(str_wo_spaces[j]) && (str[i] == '-' && str_wo_spaces[j] != '('))
+            if (!is_digit(str_wo_spaces[j]) && str_wo_spaces[j] != ')' && ((str[i] == '-' && str_wo_spaces[j] != '(')) || is_operator(str_wo_spaces[j]))
             {
                 free(str_wo_spaces);
                 str_wo_spaces = 0;
